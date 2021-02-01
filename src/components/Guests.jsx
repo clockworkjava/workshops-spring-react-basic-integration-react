@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { UpdateGuest } from "./UpdateGuest";
+import { Table, Button } from "react-bootstrap";
 
 export const Guests = () => {
 
@@ -24,7 +25,7 @@ export const Guests = () => {
 
     return (
         <>
-            <table>
+            <Table striped bordered hover>
                 <thead>
                     <tr>
                         <th>Imię</th>
@@ -41,7 +42,7 @@ export const Guests = () => {
                         <td>{guest.lastName}</td>
                         <td>{guest.age}</td>
                         <td>
-                            <button onClick={event=>removeGuest(event, guest.id)}>Usuń</button>
+                            <Button variant="warning" onClick={event=>removeGuest(event, guest.id)}>Usuń</Button>
                         </td>
                         <td>
                             <UpdateGuest guest={guest}/>
@@ -50,7 +51,7 @@ export const Guests = () => {
                 )
             })} 
                 </tbody>
-            </table>
+            </Table>
         </>
     )
 }

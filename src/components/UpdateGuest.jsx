@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Button, Form } from "react-bootstrap"
 
 export const UpdateGuest = (props) => {
 
@@ -32,28 +33,30 @@ export const UpdateGuest = (props) => {
 
 
     return (
-        <form>
-            <label>
-                First Name:
-                <input
+        <Form inline>
+            <Form.Group>
+                <Form.Label>First Name:</Form.Label>
+                <Form.Control
                     type="text"
                     name="firstName"
                     value={firstName}
-                    onChange={ event => setFirstName(event.target.value)} />
-            </label>
-            <label>
-                Last Name:
-                <input
+                    onChange={event => setFirstName(event.target.value)} />
+
+            </Form.Group>
+            <Form.Group>
+                <Form.Label>Last Name:</Form.Label>
+                <Form.Control
                     type="text"
                     name="lastName"
                     value={lastName}
-                    onChange={ event => setLastName(event.target.value)} />
-            </label>
-            <label>
-                Age:
-                <input type="number" name="name" value={age} onChange={event => setAge(event.target.value)} />
-            </label>
-            <input type="submit" value="Edytuj gościa" onClick={event => updateGuest(event)}/>
-        </form>
+                    onChange={event => setLastName(event.target.value)} />
+
+            </Form.Group>
+            <Form.Group>
+                <Form.Label>Age:</Form.Label>
+                <Form.Control type="number" name="name" value={age} onChange={event => setAge(event.target.value)} />
+            </Form.Group>
+            <Button variant="warning" type="submit" onClick={event => updateGuest(event)}>Edytuj</Button>
+        </Form>
     )
 }
